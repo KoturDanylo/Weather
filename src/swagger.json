@@ -1,0 +1,66 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "JUNE 2023"
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["User"],
+        "summary": "GET WEATHER",
+        "parameters": [
+          {
+            "city": "city",
+            "in": "query",
+            "description": "city",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "lon": "longitude",
+            "in": "query",
+            "description": "longitude",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "lat": "latitude",
+            "in": "query",
+            "description": "latitude",
+            "required": false,
+            "format": "double",
+            "type": "number" 
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "received weather",
+            "schema": {
+              "$ref": "#/definitions/Report"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Report": {
+      "properties": {
+     
+        "coord": {
+          "properties": {
+          "lon": { 
+            "format": "double",
+            "description": "Decimal value",
+            "type": "number" 
+          },
+          "lat":  { "format": "double",
+          "description": "Decimal value",
+          "type": "number"  }
+          }
+      }
+      }
+    }
+  }
+}
