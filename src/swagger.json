@@ -2,12 +2,12 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "JUNE 2023"
+    "title": "WEATHER-API"
   },
   "paths": {
-    "/users": {
+    "/weather": {
       "get": {
-        "tags": ["User"],
+        "tags": ["weather"],
         "summary": "GET WEATHER",
         "parameters": [
           {
@@ -48,7 +48,7 @@
     "Report": {
       "properties": {
      
-        "coord": {
+        "cord": {
           "properties": {
           "lon": { 
             "format": "double",

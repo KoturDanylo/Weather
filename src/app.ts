@@ -3,11 +3,13 @@ import fetch from "node-fetch";
 import swaggerUi from "swagger-ui-express";
 
 import { configs } from "./configs";
-import swaggerDocument from "./swagger.json";
+import * as swaggerDocument from "./swagger.json";
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 app.get("/weather", async (req: Request, res: Response) => {
   try {
@@ -26,8 +28,6 @@ app.get("/weather", async (req: Request, res: Response) => {
     res.status(400).json(e.message);
   }
 });
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const PORT = configs.PORT;
 app.listen(PORT, () => {
