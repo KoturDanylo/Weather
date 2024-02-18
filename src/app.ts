@@ -1,5 +1,4 @@
 import express, { Request, Response } from "express";
-import fetch from "node-fetch";
 import swaggerUi from "swagger-ui-express";
 
 import { configs } from "./configs";
